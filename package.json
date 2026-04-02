@@ -1,0 +1,13 @@
+{
+  "name": "poem-rotator",
+  "version": "1.0.0",
+  "description": "A web app that rotates through poems stored in a database",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3"
+  }
+}
