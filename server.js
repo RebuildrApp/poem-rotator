@@ -7,9 +7,7 @@ const port = process.env.PORT || 8080;
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.DATABASE_CA_CERT
-    ? { ca: process.env.DATABASE_CA_CERT, rejectUnauthorized: true }
-    : { rejectUnauthorized: false },
+  ssl: { rejectUnauthorized: false },
 });
 
 async function initDb() {
