@@ -5,8 +5,12 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 8080;
 
+// Strip sslmode from the connection string so the pg library doesn't
+// override our ssl config with verify-full behavior.
+const dbUrl = (process.env.DATABASE_URL || "").replace(/[?&]sslmode=[^&]*/g, "");
+
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: dbUrl,
   ssl: { rejectUnauthorized: false },
 });
 
